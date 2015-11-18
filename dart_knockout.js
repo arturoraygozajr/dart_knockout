@@ -25,10 +25,13 @@ if (Meteor.isClient) {
 
   Template.body.events({
     'click #newgame': function () {
-      // increment the counter when button is clicked
-      //Session.set('counter', Session.get('counter') + 1);
-      //alert("Ready");
-      Games.insert({"score": 5,"name": "bens first room"});
+      var gameName = prompt("Name your game.");
+      Games.insert({"score": 5,"name": gameName});
+    },
+
+    'click #deletegame': function () {
+
+      Games.remove(Games.findOne()._id);
     }
   });
 
