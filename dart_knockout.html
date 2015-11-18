@@ -10,8 +10,12 @@
   <button id="newgame">New Game</button>
   <br>
 
-  <button id="deletegame">Delete Game</button>
+
   <br>
+  <br>
+  <hr>
+  <hr>
+
   {{#each gamesx}}
     {{> gametemplate}}
   {{/each}}
@@ -29,5 +33,7 @@
     -------------------------------<br>
     <b>{{name}}</b><br>
     {{score}}
+    <br>
+    <button id="deletegame">Delete Game</button>
     <br>
 </template>

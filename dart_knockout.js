@@ -1,20 +1,7 @@
 Games = new Mongo.Collection("games");
 
 
-
-
 if (Meteor.isClient) {
-  // counter starts at 0
-  //Session.setDefault('counter', 0);
-  //
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
-    }
-  });
-
-
-
 
   Template.body.helpers({
     gamesx: function () {
@@ -27,11 +14,34 @@ if (Meteor.isClient) {
     'click #newgame': function () {
       var gameName = prompt("Name your game.");
       Games.insert({"score": 5,"name": gameName});
-    },
+    }
+  });
 
+
+  Template.gametemplate.events({
     'click #deletegame': function () {
+      //console.log(this);  // just print out the clicked game
+      //Games.remove(Games.findOne()._id);  // remove one at random
+      Games.remove(this._id);
+      //console.log(this._id);
+    }
+  });
 
-      Games.remove(Games.findOne()._id);
+
+
+
+
+
+
+
+
+
+  // counter starts at 0
+  //Session.setDefault('counter', 0);
+  //
+  Template.hello.helpers({
+    counter: function () {
+      return Session.get('counter');
     }
   });
 
@@ -41,8 +51,6 @@ if (Meteor.isClient) {
       Session.set('counter', Session.get('counter') + 1);
     }
   });
-
-
 }
 
 
