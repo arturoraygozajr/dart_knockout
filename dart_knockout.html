@@ -1,0 +1,29 @@
+<head>
+  <title>dart_knockout</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+
+  {{> hello}}
+
+
+  {{#each gamesx}}
+    {{> gametemplate}}
+  {{/each}}
+
+</body>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
+
+
+
+<template name="gametemplate">
+    -------------------------------<br>
+    <b>{{name}}</b><br>
+    {{score}}
+    <br>
+</template>
