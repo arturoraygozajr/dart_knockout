@@ -23,7 +23,14 @@ if (Meteor.isClient) {
     }
   });
 
-
+  Template.body.events({
+    'click #newgame': function () {
+      // increment the counter when button is clicked
+      //Session.set('counter', Session.get('counter') + 1);
+      //alert("Ready");
+      Games.insert({"score": 5,"name": "bens first room"});
+    }
+  });
 
   Template.hello.events({
     'click button': function () {
